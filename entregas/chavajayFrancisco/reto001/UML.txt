@@ -1,0 +1,50 @@
+@startuml
+class Pantalla {
+    - String nombre
+    - Clase[] clases
+    + setFrames()
+}
+
+class Buffer {
+    + mostrarFrameElegido(Frame1, Frame2, ResultadoVisual)
+}
+
+class Pixel {
+    - char[][] matriz
+    - Clase clase
+    - List elemento
+}
+
+class ColoresCompuestos {
+    - char[][] matriz
+    - Clase clase
+    - Lista colores
+}
+
+class Frame1 {
+    - char[][] matriz
+    - Clase clase
+    - PosicionFrames(Pixeles, ColoresCompuestos)
+}
+
+class Frame2 {
+    - char[][] matriz
+    - Clase clase
+    - PosicionFrames(Pixeles, ColoresCompuestos)
+}
+
+class ResultadoVisual {
+    - char[][] matriz
+    - Clase clase
+    + combinar(Frame1, Frame2)
+}
+
+Pantalla --> Buffer
+Buffer --> ResultadoVisual
+ResultadoVisual --> Frame1
+ResultadoVisual --> Frame2
+Frame1 --> Pixel
+Frame1 --> ColoresCompuestos
+Frame2 --> Pixel
+Frame2 --> ColoresCompuestos
+@enduml
